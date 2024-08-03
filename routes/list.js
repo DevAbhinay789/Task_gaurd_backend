@@ -48,8 +48,8 @@ router.put("/updateTask/:id", async (req, res) => {
 // Delete a task
 router.delete("/deleteTask/:id", async (req, res) => {
   try {
-    const { userId } = req.body;
-    const existingUser = await User.findByIdAndUpdate(userId, {
+    const { id } = req.body;
+    const existingUser = await User.findByIdAndUpdate(id, {
       $pull: { list: req.params.id },
     });
 
